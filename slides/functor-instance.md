@@ -2,7 +2,7 @@
 
 <pre>
     <code class='haskell'>
-    newtype IdentityT f a = IdentityT {runIdentityT :: f a}
+    newtype IdentityT m a = IdentityT {runIdentityT :: m a}
 
     instance (Functor m) => Functor (IdentityT m) where
         fmap f (IdentityT fa) = IdentityT (fmap f fa)
