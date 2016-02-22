@@ -2,7 +2,9 @@
 
 <pre>
     <code class='haskell'>
-    testConnectionGetChunk :: Connection -> (BS.ByteString -> (a, BS.ByteString)) -> S.StateT FakeState IO a
+    testConnectionGetChunk :: Connection ->
+        (BS.ByteString -> (a, BS.ByteString)) ->
+        S.StateT FakeState IO a
     testConnectionGetChunk c proc = do
       st <- S.get
       toRead <- liftIO . atomically $ do
